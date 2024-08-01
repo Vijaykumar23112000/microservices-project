@@ -3,8 +3,8 @@ server:
 spring:
   data:
     mongodb:
-      username: admin
-      password: password
+      username: user
+      password: letmein
       host: localhost
       port: 27017
       database: customer

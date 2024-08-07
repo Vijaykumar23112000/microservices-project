@@ -1,7 +1,9 @@
 package com.magret.service.impl;
 
 import com.magret.client.CustomerClient;
+import com.magret.client.PaymentClient;
 import com.magret.client.ProductClient;
+import com.magret.client.dto.PaymentRequest;
 import com.magret.dto.*;
 import com.magret.kafka.OrderProducer;
 import com.magret.repo.OrderRepo;
@@ -27,6 +29,7 @@ public class OrderServiceImpl implements OrderService {
     private final OrderMapper mapper;
     private final OrderLineService orderLineService;
     private final OrderProducer orderProducer;
+    private final PaymentClient paymentClient;
 
     @Override
     public Integer createOrder(OrderRequest request) {
@@ -46,6 +49,15 @@ public class OrderServiceImpl implements OrderService {
                     )
             );
         }
+
+        var paymentRequest = new PaymentRequest(
+                request.amount(),
+                request.paymentMethod(),
+                order.getId(),
+                order.getReference(),
+                customer
+        );
+        paymentClient.requestOrderPayment(paymentRequest);
 
         orderProducer.sendOrderConfirmation(
                 new OrderConfirmation(

@@ -9,16 +9,18 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Order" />
         <module name="config-server" />
-        <module name="Product" />
-        <module name="payment" />
         <module name="Customer" />
         <module name="discovery" />
+        <module name="Product" />
+        <module name="payment" />
+        <module name="Notification" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Customer" options="-parameters" />
+      <module name="Notification" options="-parameters" />
       <module name="Order" options="-parameters" />
       <module name="Product" options="-parameters" />
       <module name="config-server" options="-parameters" />

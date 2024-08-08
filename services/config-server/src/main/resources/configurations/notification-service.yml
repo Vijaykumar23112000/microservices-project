@@ -11,7 +11,7 @@ spring:
       authentication-database: admin
   kafka:
     consumer:
-      bootstrap-servers: localhost:9093
+      bootstrap-servers: localhost:9092
       group-id: paymentGroup , orderGroup
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer

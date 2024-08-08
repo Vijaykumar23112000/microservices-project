@@ -24,12 +24,12 @@ spring:
         - id: product-service
           uri: lb:http://PRODUCT_SERVICE
           predicates:
-            -Path=/api/v1/products/**
+            - Path=/api/v1/products/**
 
         - id: payment-service
-          uri: lb:http://PAYMNET_SERVICE
+          uri: lb:http://PAYMENT_SERVICE
           predicates:
-            -Path=/api/v1/payments/**
+            - Path=/api/v1/payments/**
 
 server:
   port: 8222

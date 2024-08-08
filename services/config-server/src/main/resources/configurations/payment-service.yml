@@ -7,11 +7,11 @@ spring:
     password: letmein
     jpa:
       hibernate:
-        ddl-auto: create
+        ddl-auto: update
   kafka:
     producer:
-      bootstrap-servers: localhost:9092
-      key-serializer: org.apache.common.serialization.StringSerializer
-      value-serializer: org.spring.kafka.support.serializer.JsonSerializer
+      bootstrap-servers: localhost:9093
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
         spring.json.type.mapping: paymentConfirmation:com.magret.dto.PaymentNotificationRequest
